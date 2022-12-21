@@ -1,5 +1,11 @@
-# hesbon-osoro.github.io
+# GitHub Profile
 
-Repo for hesbon-osoro.github.io domains
+[`GitHub`](hesbon-osoro.github.io) profile and root domain for hesbon-osoro.github.io/* sub-domains 
 
-This is here to remove 404 errors on the root domain
+## Light Mode
+
+[![light](assets/images/wazimu%20light.png)](hesbon-osoro.github.io)
+
+## Dark Mode
+
+[![dark](assets/images/wazimu%20dark.png)](hesbon-osoro.github.io)
