@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hesbon-osoro.github.io/sitemap.xml
