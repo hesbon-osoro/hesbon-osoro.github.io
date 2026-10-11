@@ -1,0 +1,74 @@
+name: Publish from profile README
+
+# hesbon-osoro.github.io mirrors the profile README at
+# github.com/hesbon-osoro/hesbon-osoro. This workflow rebuilds the page with
+# that repository's scripts/site/build.mjs and commits only when the output
+# changed, so the site follows the README (and its daily stat cards) without
+# manual edits.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 */3 * * *' # every 3 hours
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish.yml'
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Build and publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out this site
+        uses: actions/checkout@v7
+
+      - name: Check out the profile README
+        uses: actions/checkout@v7
+        with:
+          repository: hesbon-osoro/hesbon-osoro
+          path: .profile
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Build
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node .profile/scripts/site/build.mjs --out "$RUNNER_TEMP/site"
+
+      - name: Replace site contents with the new build
+        run: |
+          echo "PROFILE_SHA=$(git -C .profile rev-parse --short HEAD)" >> "$GITHUB_ENV"
+          rm -rf .profile
+          rsync -a --delete \
+            --exclude '.git/' --exclude '.github/' \
+            --exclude 'README.md' --exclude '.gitignore' \
+            "$RUNNER_TEMP/site/" ./
+
+      - name: Commit and request a Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Site already up to date."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m "chore(site): rebuild from profile README @ ${PROFILE_SHA}"
+          git push
+          # Pushes made with the job token may not trigger a Pages build on
+          # their own, so ask for one explicitly.
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" --silent

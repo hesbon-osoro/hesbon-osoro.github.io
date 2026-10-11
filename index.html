@@ -1,1212 +1,934 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="keywords"
-      content="JavaScript, CSS, HTML, MongoDB, PostgreSQL, MySQL, Java, C, Python, software engineering, web development, full stack development, front-end development, back-end development, database management, web application development, agile development, Hesbon, Hesbon Osoro, Github, Github profile, Software Engineer, Cool portfolio, Cool profile, Developer, Portfolio, Stunning Portfolio, Stunning profile, Resume, Developer Resume, Top resume, React, Node.js, Postgres, Gatsby, Next, CMS, Contentful, Pusher, Contentful CMS"
-    />
-    <title>Hesbon Osoro</title>
-    <link
-      rel="shortcut icon"
-      href="./assets/icons/portfolio.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300&family=Charm&display=swap"
-      rel="stylesheet"
-    />
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <div class="keywords-background" id="keywords"></div>
-    <div class="background-wrapper">
-      <div class="container">
-        <button id="scroll-button" onclick="scrollToTopOrBottom()">
-          <img src="./assets/icons/mouse1.png" alt="Scroll button" />
-        </button>
-        <button id="toggle-dark-mode-button">
-          <img src="./assets/icons/sun.png" id="sun" alt="Sun" />
-          <img src="./assets/icons/moon.png" id="moon" alt="Moon" />
-        </button>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hesbon Osoro: Software & Platform Engineer</title>
+  <meta name="description" content="Software engineer building production web apps and the cloud platforms they run on: Go, TypeScript, React, Kubernetes, Docker, Terraform and AWS. Also available for MATLAB, R, Tableau, math and data-analysis work.">
+  <link rel="canonical" href="https://hesbon-osoro.github.io/">
+  <meta name="theme-color" content="#0d1117">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Hesbon Osoro: Software & Platform Engineer">
+  <meta property="og:description" content="Software engineer building production web apps and the cloud platforms they run on: Go, TypeScript, React, Kubernetes, Docker, Terraform and AWS. Also available for MATLAB, R, Tableau, math and data-analysis work.">
+  <meta property="og:url" content="https://hesbon-osoro.github.io/">
+  <meta property="og:image" content="https://hesbon-osoro.github.io/assets/projects/hesbon-dev.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wazimu_hb">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👋</text></svg>">
+  <script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    var dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  })();
+</script>
+  <link id="md-light" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.8.1/github-markdown-light.css" media="(prefers-color-scheme: light)">
+  <link id="md-dark" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.8.1/github-markdown-dark.css" media="(prefers-color-scheme: dark)">
+  <style>
+  :root {
+    --page-bg: #ffffff;
+    --bar-bg: rgba(255, 255, 255, 0.85);
+    --bar-border: #d1d9e0;
+    --text: #1f2328;
+    --muted: #59636e;
+    --accent: #0969da;
+    --cta-bg: #1f883d;
+    --cta-text: #ffffff;
+    --summary-bg: #f6f8fa;
+    --summary-hover: #eaeef2;
+  }
+  :root[data-theme='dark'] {
+    --page-bg: #0d1117;
+    --bar-bg: rgba(13, 17, 23, 0.85);
+    --bar-border: #3d444d;
+    --text: #f0f6fc;
+    --muted: #9198a1;
+    --accent: #4493f8;
+    --cta-bg: #238636;
+    --cta-text: #ffffff;
+    --summary-bg: #151b23;
+    --summary-hover: #212830;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body { margin: 0; background: var(--page-bg); color: var(--text); }
 
-        <h3>
-          Hi
-          <img
-            src="./assets/icons/wave.gif"
-            height="24px"
-            width="24px"
-            alt="hi"
-          />,
-        </h3>
-        <p>
-          <a href="https://hb-wazimu.netlify.app">
-            <img src="assets/projects/wazimu.png" alt="wazimu" />
-          </a>
-        </p>
-        <p>
-          <a href="https://app.netlify.com/sites/hb-wazimu/deploys">
-            <img
-              src="https://api.netlify.com/api/v1/badges/9fef8153-c463-4241-8f68-3342069d4495/deploy-status"
-              alt="Netlify Status"
-            />
-          </a>
-        </p>
-        <p>
-          Check out my
-          <a href="https://hb-wazimu.netlify.app/">Portfolio website</a>.
-        </p>
-        <p>
-          <a href="https://g.dev/hesbon-osoro">Google</a> |
-          <a href="https://hesbon-osoro.github.io/hesbon-osoro/">GitHub</a>
-        </p>
-        <p class="typing-svg">
-          <a href="https://git.io/typing-svg">
-            <img
-              src="https://readme-typing-svg.herokuapp.com?color=2FA4D7&height=30&center=true&vCenter=true&lines=I'm+Hesbon;A.K.A+Wazimu"
-              alt="Typing SVG"
-            />
-          </a>
-        </p>
-        <div class="intro">
-          <p>
-            I am a motivated software engineer with 3+ years of experience in
-            building web applications. I don't just write code, I really fancy
-            problem-solving and collaborating with various stakeholders. I am
-            currently looking for new and challenging opportunities that help me
-            become a better engineer.
-          </p>
-          <p>
-            In my free time, I enjoy staying up-to-date on tech trends and
-            research, playing chess, and traveling and experiencing new
-            adventures. These interests allow me to have a well-rounded
-            personality and keep my mind sharp and engaged. I am always looking
-            for ways to learn and grow, both personally and professionally.
-          </p>
-          <p>
-            I have deployed several sites some of which am showcasing in the
-            <a href="#sample-projects">Sample Projects</a> section.
-          </p>
-        </div>
-        <h2>Top Technologies</h2>
-        <div class="top-technologies">
-          <img
-            src="https://img.shields.io/badge/-React-61DBFB?style=for-the-badge&labelColor=black&logo=react&logoColor=61DBFB"
-            alt="React Badge"
-          />
-          <img
-            src="https://img.shields.io/badge/-Javascript-F0DB4F?style=for-the-badge&labelColor=black&logo=javascript&logoColor=F0DB4F"
-            alt="JavaScript Badge"
-          />
-          <img
-            src="https://img.shields.io/badge/-Nodejs-3C873A?style=for-the-badge&labelColor=black&logo=node.js&logoColor=3C873A"
-            alt="Node.js Badge"
-          />
-          <img
-            src="https://img.shields.io/badge/-GraphQl-e535ab?style=for-the-badge&labelColor=black&logo=node.js&logoColor=e535ab"
-            alt="GraphQL Badge"
-          />
-        </div>
-        <h3>Experience</h3>
-        <p align="left">
-          <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg"
-            alt="TypeScript"
-            width="40"
-            height="40"
-          />
-          <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
-            alt="JavaScript"
-            width="40"
-            height="40"
-          />
-          <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg"
-            alt="React"
-            width="40"
-            height="40"
-          />
-          <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg"
-            alt="NodeJS"
-            width="40"
-            height="40"
-          />
-          <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"
-            alt="HTML5"
-            width="40"
-            height="40"
-          />
-          <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"
-            alt="CSS"
-            width="40"
-            height="40"
-          />
-          <!-- <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" width="40" height="40" /> -->
-          <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg"
-            alt="Git"
-            width="40"
-            height="40"
-          />
-          <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/heroku/heroku-original.svg"
-            alt="Heroku"
-            width="40"
-            height="40"
-          />
-          <!-- <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jquery/jquery-original.svg" alt="JQuery" width="40" height="40" /> -->
-          <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg"
-            alt="MongoDB"
-            width="40"
-            height="40"
-          />
-          <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg"
-            alt="MySQL"
-            width="40"
-            height="40"
-          />
-          <img
-            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png"
-            alt="PostgreSQL"
-            width="40"
-          />
-          <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
-            alt="Python"
-            width="40"
-            height="40"
-          />
-          <img
-            src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-plain.svg"
-            alt="Linux"
-            width="40"
-            height="40"
-          />
-        </p>
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; gap: 16px;
+    padding: 10px max(16px, calc((100vw - 1012px) / 2 + 16px));
+    background: var(--bar-bg);
+    backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--bar-border);
+    font: 500 14px/1.4 -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  }
+  .bar .brand { color: var(--text); font-weight: 600; text-decoration: none; margin-right: auto; white-space: nowrap; }
+  .bar nav { display: flex; gap: 16px; overflow-x: auto; scrollbar-width: none; }
+  .bar nav a { color: var(--muted); text-decoration: none; white-space: nowrap; }
+  .bar nav a:hover { color: var(--accent); }
+  .theme-toggle {
+    flex: none; width: 32px; height: 32px; border-radius: 8px;
+    border: 1px solid var(--bar-border); background: transparent; color: var(--text);
+    cursor: pointer; font-size: 16px; line-height: 1;
+  }
 
-        <h2 id="sample-projects">Projects</h2>
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <a href="https://restaurant-ecommerce.netlify.app/">
-                  <img
-                    width="300px"
-                    src="assets/projects/restaurant.png"
-                    alt="Restaurant E-commerce"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://restaurant-ecommerce.netlify.app/"
-                  >Restaurant E-commerce site</a
-                >
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/restaurant">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://hampi-tourism-site-hb.netlify.app/">
-                  <img width="300px" src="assets/projects/hampi.png" />
-                </a>
-              </td>
-              <td>
-                <a href="https://hampi-tourism-site-hb.netlify.app/"
-                  >Tourism Hampi</a
-                >
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/tourism-hampi">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://video-app-hb.netlify.app/">
-                  <img src="assets/projects/video-app.png" width="300px" />
-                </a>
-              </td>
-              <td>
-                <a href="https://video-app-hb.netlify.app/">Video App</a>
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/video-app">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://chat-app-merng.netlify.app/">
-                  <img src="assets/projects/chatapp.png" width="300px" />
-                </a>
-              </td>
-              <td>
-                <a href="https://chat-app-merng.netlify.app/">Chat App</a>
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/chat-app-merng-client">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://dating-site-frontend.netlify.app/">
-                  <img
-                    width="300px"
-                    src="assets/projects/dating-app-frontend.png"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://dating-site-frontend.netlify.app/"
-                  >Dating Site</a
-                >
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/dating-app-frontend">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://salad-hb.netlify.app/">
-                  <img
-                    width="300px"
-                    src="assets/projects/salad.png"
-                    alt="Salad site"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://salad-hb.netlify.app/">Salad site</a>
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/salad">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://agency-site-hb.netlify.app/">
-                  <img width="300px" src="assets/projects/agency-site.png" />
-                </a>
-              </td>
-              <td>
-                <a href="https://agency-site-hb.netlify.app">Agency Site</a>
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/agency-site">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://portfolio-hb.netlify.app/">
-                  <img width="300px" src="assets/projects/portfolio-hb.png" />
-                </a>
-              </td>
-              <td>
-                <a href="https://portfolio-hb.netlify.app/">Sample Portfolio</a>
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/portfolio-hb">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://recipes-homemade-hb.netlify.app/">
-                  <img width="300px" src="assets/projects/recipes.png" />
-                </a>
-              </td>
-              <td>
-                <a href="https://recipes-homemade-hb.netlify.app/"
-                  >Recipes Homemade</a
-                >
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/recipes-homemade">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://messaging-app-frontend.web.app/">
-                  <img src="assets/projects/messaging2.png" width="300px" />
-                </a>
-              </td>
-              <td>
-                <a href="https://messaging-app-frontend.web.app/"
-                  >Messaging App</a
-                >
-                <br />
-                <br />
-                <a
-                  href="https://github.com/hesbon-osoro/messaging-app-frontend"
-                >
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://reactjs-shoppy-admin-dashboard.netlify.app/">
-                  <img
-                    width="300px"
-                    src="assets/projects/shoppy-dashboard.png"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://reactjs-shoppy-admin-dashboard.netlify.app/"
-                  >Shoppy Dashboard</a
-                >
-                <br />
-                <br />
-                <a
-                  href="https://github.com/hesbon-osoro/shoppy-admin-dashboard"
-                >
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://simple-multistep-form.netlify.app/">
-                  <img
-                    src="assets/projects/simple-multistep.png"
-                    width="300px"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://simple-multistep-form.netlify.app/"
-                  >Simple Multi-step form</a
-                >
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/simple-multistep-form">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://react-alarm-clock.netlify.app/">
-                  <img width="300px" src="assets/projects/alarm-clock.png" />
-                </a>
-              </td>
-              <td>
-                <a href="https://react-alarm-clock.netlify.app/">Alarm Clock</a>
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/alarm-clock">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://snake-game-ts.netlify.app/">
-                  <img src="assets/projects/snake-game.png" width="300px" />
-                </a>
-              </td>
-              <td>
-                <a href="https://snake-game-ts.netlify.app/">Snake Game</a>
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/snake-game">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://reactjs-chess.vercel.app/">
-                  <img width="300px" src="assets/projects/react-chess.png" />
-                </a>
-              </td>
-              <td>
-                <a href="https://reactjs-chess.vercel.app/">React Chess</a>
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/react-chess">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://reactjs-sort-visualizer.netlify.app/">
-                  <img
-                    src="assets/projects/sort-visualizer.png"
-                    width="300px"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://reactjs-sort-visualizer.netlify.app/"
-                  >Sort Visualizer</a
-                >
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/sort-visualizer">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://reactts-shopping-cart.netlify.app/">
-                  <img width="300px" src="assets/projects/shopping-cart.png" />
-                </a>
-              </td>
-              <td>
-                <a href="https://reactts-shopping-cart.netlify.app/"
-                  >Shopping Cart</a
-                >
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/shopping-cart">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://custom-pagination-react.netlify.app/">
-                  <img
-                    src="assets/projects/custom%20pagination.png"
-                    width="300px"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://custom-pagination-react.netlify.app/"
-                  >Custom Pagination</a
-                >
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/custom-pagination">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://react-custom-select.netlify.app/">
-                  <img width="300px" src="assets/projects/react-select.png" />
-                </a>
-              </td>
-              <td>
-                <a href="https://react-custom-select.netlify.app/"
-                  >Custom Select</a
-                >
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/react-select">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://reactjs-drag-and-drop.netlify.app/">
-                  <img
-                    src="assets/projects/drag%20and%20drop.png"
-                    width="300px"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://reactjs-drag-and-drop.netlify.app/"
-                  >Drag and Drop</a
-                >
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/drag-and-drop">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://ck-editor-react.netlify.app/">
-                  <img width="300px" src="assets/projects/ck-editor.png" />
-                </a>
-              </td>
-              <td>
-                <a href="https://ck-editor-react.netlify.app/">CK 5 Editor</a>
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/ck-editor-react">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://tic-tac-toe-ts-game.netlify.app/">
-                  <img src="assets/projects/tictactoe.png" width="300px" />
-                </a>
-              </td>
-              <td>
-                <a href="https://tic-tac-toe-ts-game.netlify.app/"
-                  >Tic Tac Toe</a
-                >
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/tic-tac-toe">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://face-auth.netlify.app/">
-                  <img width="300px" src="assets/projects/face-auth1.png" />
-                </a>
-              </td>
-              <td>
-                <a href="https://face-auth.netlify.app/">Face Auth</a>
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/face-auth">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://dynamic-next-previous-buttons.vercel.app/">
-                  <img
-                    src="assets/projects/dynamic%20nextprev.png"
-                    width="300px"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://dynamic-next-previous-buttons.vercel.app/"
-                  >Dynamic Next/Previous buttons</a
-                >
-                <br />
-                <br />
-                <a
-                  href="https://github.com/hesbon-osoro/dynamic-next-previous-buttons"
-                >
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://nextjs-video-streaming.vercel.app/">
-                  <img width="300px" src="assets/projects/video-stream2.png" />
-                </a>
-              </td>
-              <td>
-                <a href="https://nextjs-video-streaming.vercel.app/"
-                  >Video Stream</a
-                >
-                <br />
-                <br />
-                <a
-                  href="https://github.com/hesbon-osoro/nextjs-video-streaming"
-                >
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://hesbon-osoro.github.io/MindTap/">
-                  <img
-                    width="300px"
-                    src="assets/projects/cengage-mindtap.png"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://hesbon-osoro.github.io/MindTap/"
-                  >Cengage | MindTap (69 - projects)</a
-                >
-                <br />
-                <br />
-                <a href="https://github.com/hesbon-osoro/MindTap">
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://follow-for-follow-back.vercel.app/">
-                  <img
-                    width="300px"
-                    src="./assets/projects/follow-for-follow-back-hesbon.png"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://follow-for-follow-back.vercel.app/"
-                  >Follow For Follow Back</a
-                >
-                <br />
-                <br />
-                <a
-                  href="https://github.com/hesbon-osoro/follow-for-follow-back"
-                >
-                  <img
-                    src="assets/icons/github.png"
-                    width="30px"
-                    height="30px"
-                    alt="Github Icon"
-                  />
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="4">
-                CLICK ON THE
-                <img
-                  src="assets/icons/github.png"
-                  width="30px"
-                  height="30px"
-                  alt="Github Icon"
-                />
-                ICON TO VIEW THE PROJECT'S REPOSITORY
-              </td>
-            </tr>
-            <tr>
-              <td colspan="4">
-                CLICK ON THE PROJECT IMAGE OR THE <a href="#">BLUE LINK</a> TO
-                VISIT THE HOSTED PROJECT
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <br />
+  .markdown-body {
+    max-width: 1012px; margin: 0 auto; padding: 32px;
+    background: var(--page-bg);
+  }
+  @media (max-width: 767px) {
+    .markdown-body { padding: 16px; }
+    .bar nav { display: none; }
+  }
 
-        <h2>Certifications</h2>
-        <table class="certifications">
-          <tbody>
-            <tr>
-              <td>
-                <a href="https://www.hackerrank.com/certificates/229ef084f60a">
-                  <img
-                    width="300px"
-                    src="assets/certificates/hackerrank js basic.png"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://www.hackerrank.com/certificates/229ef084f60a"
-                  >Verify</a
-                >
-              </td>
-              <td>
-                <a href="https://www.hackerrank.com/certificates/12d1fbc424ce">
-                  <img
-                    src="assets/certificates/Hackerrankproblemsolving.png"
-                    width="300px"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://www.hackerrank.com/certificates/12d1fbc424ce"
-                  >Verify</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://www.codechef.com/certificates/verify">
-                  <img
-                    width="300px"
-                    src="assets/certificates/snackdown2021.png"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://www.codechef.com/certificates/verify">Verify</a
-                ><br />
-                <span><b>Certificate ID:</b> 94a6f28</span><br />
-                <span><b>Username:</b> wazimu</span>
-              </td>
-              <td>
-                <a href="https://hb-wazimu.netlify.app/#certification">
-                  <img
-                    src="assets/certificates/googlekickstart.png"
-                    width="300px"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://hb-wazimu.netlify.app/#certification"
-                  >Verify</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="https://www.freecodecamp.org/certification/wazimu/front-end-development-libraries"
-                >
-                  <img
-                    width="300px"
-                    src="assets/certificates/freeCodeCamp frontend dev libs.png"
-                  />
-                </a>
-              </td>
-              <td>
-                <a
-                  href="https://www.freecodecamp.org/certification/wazimu/front-end-development-libraries"
-                  >Verify</a
-                >
-              </td>
-              <td>
-                <a
-                  href="https://www.freecodecamp.org/certification/wazimu/javascript-algorithms-and-data-structures"
-                >
-                  <img
-                    src="assets/certificates/freeCodeCamp JADS certification.png"
-                    width="300px"
-                  />
-                </a>
-              </td>
-              <td>
-                <a
-                  href="https://www.freecodecamp.org/certification/wazimu/javascript-algorithms-and-data-structures"
-                  >Verify</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a
-                  href="https://www.freecodecamp.org/certification/wazimu/responsive-web-design"
-                >
-                  <img
-                    width="300px"
-                    src="assets/certificates/freeCodeCamp RWD certification.png"
-                  />
-                </a>
-              </td>
-              <td>
-                <a
-                  href="https://www.freecodecamp.org/certification/wazimu/responsive-web-design"
-                  >Verify</a
-                >
-              </td>
-              <td>
-                <a href="https://hb-wazimu.netlify.app/#certification">
-                  <img
-                    src="assets/certificates/devfest2021.png"
-                    width="300px"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://hb-wazimu.netlify.app/#certification"
-                  >Verify</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://hb-wazimu.netlify.app/#certification">
-                  <img
-                    width="300px"
-                    src="assets/certificates/googleanalytics.png"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://hb-wazimu.netlify.app/#certification"
-                  >Verify</a
-                >
-              </td>
-              <td>
-                <a href="https://hb-wazimu.netlify.app/#certification">
-                  <img
-                    width="300px"
-                    src="assets/certificates/AWS practitioner.png"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://hb-wazimu.netlify.app/#certification"
-                  >Verify</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://hb-wazimu.netlify.app/#certification">
-                  <img src="assets/certificates/hesbon-twd.png" width="300px" />
-                </a>
-              </td>
-              <td>
-                <a href="https://hb-wazimu.netlify.app/#certification"
-                  >Verify</a
-                >
-              </td>
-              <td>
-                <a href="https://hb-wazimu.netlify.app/#certification">
-                  <img
-                    src="assets/certificates/AWS Elastic Beanstalk(intro).png"
-                    width="300px"
-                  />
-                </a>
-              </td>
-              <td>
-                <a href="https://hb-wazimu.netlify.app/#certification"
-                  >Verify</a
-                >
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://hb-wazimu.netlify.app/#certification">
-                  <img src="assets/certificates/hourofcode.jpg" width="300px" />
-                </a>
-              </td>
-              <td>
-                <a
-                  href="https://code.org/congrats?i=_1_18e783d40c7c6f10271c6612c21a4c65"
-                  >Verify</a
-                >
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  /* Collapsible sections: a clear, clickable header instead of a bare triangle. */
+  .markdown-body details {
+    border: 1px solid var(--bar-border);
+    border-radius: 10px;
+    margin: 16px 0;
+    overflow: hidden;
+  }
+  .markdown-body details > summary {
+    cursor: pointer; list-style: none;
+    display: block;
+    padding: 12px 16px;
+    background: var(--summary-bg);
+    transition: background-color 0.2s ease;
+  }
+  .markdown-body details > summary::-webkit-details-marker { display: none; }
+  .markdown-body details > summary:hover { background: var(--summary-hover); }
+  .markdown-body details > summary::before {
+    content: ''; display: inline-block; width: 8px; height: 8px;
+    margin: 0 12px 2px 2px; vertical-align: middle;
+    border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+  }
+  .markdown-body details[open] > summary::before { transform: rotate(45deg); }
+  .markdown-body details > :not(summary) { margin-left: 16px; margin-right: 16px; }
+  /* github-markdown-css sizes tables to max-content, which changes as images
+     load; a fixed full-width layout keeps the open animation's target height
+     accurate. */
+  .markdown-body details > table {
+    display: table; width: calc(100% - 32px); table-layout: fixed; margin-top: 16px;
+  }
 
-        <h3 class="greet">
-          Let's Connect
-          <img
-            src="./assets/icons/handshake.gif"
-            height="32px"
-            style="margin-bottom: -5px"
-            alt="handshake"
-          />
-        </h3>
-        <p align="center">
-          <a href="https://www.linkedin.com/in/hesbon-osoro/">
-            <img
-              src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" /></a
-          >&nbsp;&nbsp;
-          <a href="https://instagram.com/wazimu.hb">
-            <img
-              src="https://img.shields.io/badge/instagram-%23E4405F.svg?&style=for-the-badge&logo=instagram&logoColor=white" /></a
-          >&nbsp;&nbsp;
-          <a href="https://wa.me/+254792496898">
-            <img
-              src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /></a
-          >&nbsp;&nbsp;
-          <a href="mailto:hesbonosoro1@gmail.com">
-            <img
-              src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a
-          >&nbsp;&nbsp;
-          <a href="https://t.me/hesbon-osoro">
-            <img
-              src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"
-            />
-          </a>
-        </p>
-        <p align="center">
-          <a href="https://twitter.com/wazimu_hb">
-            <img
-              src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"
-          /></a>
-          <a href="https://github.com/hesbon-osoro">
-            <img
-              src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"
-          /></a>
-          <a href="https://www.reddit.com/user/hesbon-osoro">
-            <img
-              src="	https://img.shields.io/badge/Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white"
-          /></a>
-          <a href="https://www.youtube.com/channel/UCgHKQfyNh8thOZtS4kfQG-A">
-            <img
-              src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"
-          /></a>
-        </p>
-        <h2>Contribution Graph</h2>
-        <p class="contribution">
-          <a
-            href="https://github-readme-activity-graph.cyclic.app/graph?username=hesbon-osoro&bg_color=121112&color=a8a4a7&line=1ca01f&point=dbe1dd&area=true&hide_border=true&theme=github-compact"
-          >
-            <img
-              src="https://github-readme-activity-graph.cyclic.app/graph?username=hesbon-osoro&bg_color=121112&color=a8a4a7&line=1ca01f&point=dbe1dd&area=true&hide_border=true&theme=github-compact"
-              alt="Contribution"
-            />
-          </a>
-        </p>
-        <h3>🏆</h3>
-        <p>
-          <a href="https://github.com/hesbon-osoro">
-            <img
-              src="https://github-profile-trophy.vercel.app/?username=hesbon-osoro&theme=onedark&no-bg=false&count_private=true"
-              alt="trophies"
-            />
-          </a>
-        </p>
-        <p>
-          <a href="https://github.com/hesbon-osoro">
-            <img
-              src="https://github-readme-stats.vercel.app/api?username=hesbon-osoro&count_private=true&show_icons=true&theme=dark&title_color=009933&include_all_commits=true"
-              alt="Github Stats"
-            />
-          </a>
-        </p>
-        <p>
-          <img
-            width="400px"
-            src="https://github-readme-streak-stats.herokuapp.com/?user=hesbon-osoro&theme=dark"
-            alt="ReadMe Streak"
-          />
-        </p>
-        <p>
-          <a
-            href="https://github.com/hesbon-osoro/hesbon-osoro&show_owner=true&count_private=true"
-          >
-            <img
-              src="https://github-readme-stats.vercel.app/api/pin/?username=hesbon-osoro&repo=hesbon-osoro&theme=dark&title_color=009933"
-              alt="ReadMe Card"
-            />
-          </a>
-        </p>
-        <p>
-          <a href="https://github.com/hesbon-osoro/hesbon-osoro">
-            <img
-              src="https://github-readme-stats.vercel.app/api/top-langs/?username=hesbon-osoro&layout=compact&theme=dark&title_color=009933"
-              alt="Top Languages"
-            />
-          </a>
-        </p>
-        <p>
-          <a href="https://leetcode.com/hesbon-osoro/">
-            <img
-              src="https://leetcode.card.workers.dev/hesbon-osoro?theme=dark&font=source_code_pro&extension=null"
-              alt="LeetCode Stats"
-            />
-          </a>
-        </p>
-        <p>
-          <a href="https://leetcode.com/hesbon-osoro/">
-            <img
-              src="https://leetcode-stats.vercel.app/api?username=hesbon-osoro&theme=Dark"
-              alt="LeetCode stats"
-            />
-          </a>
-        </p>
-        <p>
-          <a href="https://wakatime.com/@wazimu">
-            <img
-              src="https://github-readme-stats.vercel.app/api/wakatime?username=wazimu&theme=dark&title_color=009933"
-              alt="Wakatime stats"
-            />
-          </a>
-        </p>
-        <p>
-          <a href="https://wakatime.com/@26cc90f6-22da-4220-ac7d-f452b6324239">
-            <img
-              src="https://wakatime.com/badge/user/26cc90f6-22da-4220-ac7d-f452b6324239.svg"
-              alt=""
-            />
-          </a>
-        </p>
-        <h3>Repo Views</h3>
-        <p>
-          <a href="https://github.com/hesbon-osoro/wazimu-views-counter">
-            <img
-              src="https://github.com/hesbon-osoro/wazimu-views-counter/blob/master/svg/profile/badge.svg"
-              alt="Views"
-            />
-          </a>
-        </p>
-        <p>
-          <a href="https://github.com/hesbon-osoro?tab=followers">
-            <img
-              src="https://img.shields.io/github/followers/hesbon-osoro?label=Followers&logo=GitHub&style=for-the-badge"
-              alt="GitHub badge"
-            />
-          </a>
-        </p>
-        <div class="random-joke">
-          <h3>😂 Here is a random joke for you today: -</h3>
-          <img src="https://readme-jokes.vercel.app/api" alt="Joke" />
-        </div>
-        <h3>
-          Star my projects
-          <a href="https://github.com/hesbon-osoro?tab=repositories">here</a>
-        </h3>
-        <div class="contact-for-opportunities">
-          <p>
-            &lt;Roles || Opportunities
-            <a href="mailto:hesbonosoro1@gmail.com">Mail</a> Me!&gt;
-          </p>
-          <p>&lt;&lt;---WorkFromHome/ Remote---&gt;&gt;</p>
-          <p><em>Actively interviewing</em></p>
-          <p>
-            &lt;Mail me your coding assignment:
-            <a href="mailto:hesbonosoro1@gmail.com">hesbonosoro1@gmail.com</a
-            >&gt;
-          </p>
-        </div>
-        <div class="appreciation">
-          <p>
-            <a href="https://www.buymeacoffee.com/wazimu">
-              <img
-                src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png"
-                alt="Buy Me A Coffee"
-              />
-            </a>
-            OR <a href="https://www.paypal.com/">Paypal</a> use
-            <em>hesbonosoro1@gmail.com</em>
-          </p>
-        </div>
-        <p>Thank you.</p>
-        <footer>
-          <p>
-            &copy;<span id="date"></span>
-            <a
-              href="https://github.com/hesbon-osoro"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="./assets/icons/github.png" alt="Github"
-            /></a>
-            wazimu
-          </p>
-        </footer>
-      </div>
-    </div>
-  </body>
+  .hire {
+    position: fixed; right: 20px; bottom: 20px; z-index: 10;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 18px; border-radius: 999px;
+    background: var(--cta-bg); color: var(--cta-text);
+    font: 600 15px/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .hire:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3); }
+
+  footer {
+    max-width: 1012px; margin: 0 auto; padding: 24px 32px 96px;
+    color: var(--muted); font: 13px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    border-top: 1px solid var(--bar-border);
+  }
+  footer a { color: var(--accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before { transition: none !important; }
+  }
+</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Hesbon Osoro","alternateName":"Wazimu","jobTitle":"Software & Platform Engineer","email":"mailto:osoro@hesbon.dev","url":"https://hesbon-osoro.github.io/","sameAs":["https://github.com/hesbon-osoro","https://www.linkedin.com/in/hesbon-osoro/","https://twitter.com/wazimu_hb","https://hesbon.dev/"],"knowsAbout":["Kubernetes","Docker","Terraform","AWS","Go","TypeScript","React","Next.js","Node.js","Python","MATLAB","R","Tableau","Data analysis"]}</script>
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="#top">Hesbon Osoro</a>
+    <nav aria-label="Sections">
+      <a href="#platform-showcase">Showcase</a>
+      <a href="#sample-projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#lets-connect">Contact</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle theme">🌙</button>
+  </header>
+  <main id="top" class="markdown-body">
+<div class="markdown-heading"><h2 id="hi" class="heading-element">Hi <img loading="lazy" src="./assets/icons/wave.gif" height="24px" width="24px" alt="hi" style="aspect-ratio: 241 / 234; height: auto; max-width: 100%; height: auto; max-height: 24px;">,</h2><a id="hi-" class="anchor" aria-label="Permalink: Hi ," href="#hi-"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><a href="https://hesbon.dev/" rel="nofollow"><img loading="lazy" src="assets/cards/typing.svg" alt="I'm Hesbon, A.K.A Wazimu: Software &amp; Platform Engineer" style="max-width: 100%;"></a></p>
+<p>🚀 <strong>Software Engineer | Platform &amp; DevOps | Full-Stack Developer | AI &amp; Cybersecurity Enthusiast</strong></p>
+<blockquote>
+<p>🛠️ <strong>New</strong>: <a href="https://github.com/hesbon-osoro/hesbon-osoro/blob/main/REPO_MANAGEMENT.md">Repository Management Tools</a> - Automatically clone and manage all portfolio projects</p>
+</blockquote>
+<p><a href="https://hesbon.dev/" rel="nofollow"><img loading="lazy" src="assets/projects/hesbon-dev.png" alt="hesbon-dev.png" style="aspect-ratio: 1920 / 962; height: auto; max-width: 100%;"></a></p>
+<p><a href="https://hesbon.dev/" rel="nofollow"><img loading="lazy" src="https://camo.githubusercontent.com/8c4114e69b3e13de52219256e421c8cf805a671897d8812a986249ab02aef379/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f506f7274666f6c696f2d56697369742d3246413444373f7374796c653d666f722d7468652d6261646765266c6f676f3d6e65746c696679" alt="Portfolio" data-canonical-src="https://img.shields.io/badge/Portfolio-Visit-2FA4D7?style=for-the-badge&amp;logo=netlify" style="max-width: 100%;"></a>
+<a href="mailto:osoro@hesbon.dev?subject=Project%20inquiry"><img loading="lazy" src="assets/cards/hire-me.svg" alt="Hire me: osoro@hesbon.dev" style="max-width: 100%;"></a>
+<a href="https://github.com/hesbon-osoro/hesbon-osoro/actions/workflows/ci.yml"><img loading="lazy" src="https://github.com/hesbon-osoro/hesbon-osoro/actions/workflows/ci.yml/badge.svg" alt="CI" style="max-width: 100%;"></a></p>
+<div class="markdown-heading"><h2 id="about-me" class="heading-element">👨‍💻 About Me</h2><a id="‍-about-me" class="anchor" aria-label="Permalink: 👨‍💻 About Me" href="#‍-about-me"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>As a <strong>Software Engineer</strong> with 3+ years in the field, I thrive on the process of transforming complex problems into <strong>impactful, scalable solutions</strong>. My experience spans delivering <strong>production-grade web applications</strong> (featured in <a href="#sample-projects">Sample Projects</a>), building the <strong>cloud platforms they run on</strong>, and contributing to cutting-edge <strong>AI model training and data enhancement</strong>.</p>
+<p>I view every project as a new challenge and a chance to evolve. I collaborate closely with diverse stakeholders to deliver efficient results, always staying updated on the latest trends and sharing my refined solutions with the wider community.</p>
+<ul>
+<li>🌐 Delivered 30+ production-ready projects (React, Next.js, Node.js, GraphQL, PostgreSQL, MongoDB).</li>
+<li>☸️ Design containerised services for Kubernetes with Terraform-managed AWS infrastructure and GitHub Actions CI/CD (<a href="#platform-showcase">see the showcase</a>).</li>
+<li>🤖 Contributed to AI model training &amp; dataset validation for research and academic projects.</li>
+<li>🔐 Self-driven in <strong>CompTIA Ethical Hacking</strong> and <strong>HackTheBox</strong> labs.</li>
+<li>🎓 Background in mathematics, data modeling, and content evaluation: available for MATLAB, R, Tableau and data-analysis work.</li>
+</ul>
+<div class="markdown-heading"><h2 id="tech-stack" class="heading-element">🛠️ Tech Stack</h2><a id="️-tech-stack" class="anchor" aria-label="Permalink: 🛠️ Tech Stack" href="#️-tech-stack"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><strong>Languages:</strong> Go, TypeScript, JavaScript, Rust, Python, SQL, Bash<br>
+<strong>Frontend &amp; APIs:</strong> React, Next.js, Node.js, GraphQL, REST<br>
+<strong>Cloud &amp; Platform:</strong> AWS (EKS, ECR, IAM, VPC), Docker, Kubernetes, Kustomize, Terraform<br>
+<strong>DevOps &amp; SRE:</strong> GitHub Actions (OIDC), Prometheus, SLOs &amp; error budgets, Nginx, Linux, Git<br>
+<strong>Databases:</strong> PostgreSQL, MongoDB, MySQL, Firebase<br>
+<strong>Math &amp; Data:</strong> MATLAB, R, Tableau, Python (NumPy, pandas), Excel, statistics, numerical methods<br>
+<strong>Security:</strong> Ethical Hacking (CompTIA), HackTheBox, least-privilege IAM, Pod Security Standards<br>
+<strong>Other:</strong> Academic writing, research, data annotation</p>
+<p align="left">
+  <img loading="lazy" src="assets/cards/stack-code.svg" alt="Go, Rust, TypeScript, JavaScript, Python, React, Next.js, Node.js, GraphQL, HTML, CSS" style="max-width: 100%;">
+  <br>
+  <img loading="lazy" src="assets/cards/stack-platform.svg" alt="Docker, Kubernetes, Terraform, AWS, GitHub Actions, Prometheus, Nginx, Linux, Bash, Git" style="max-width: 100%;">
+  <br>
+  <img loading="lazy" src="assets/cards/stack-data.svg" alt="PostgreSQL, MongoDB, MySQL, Firebase, R, MATLAB" style="max-width: 100%;">
+</p>
+<div class="markdown-heading"><h2 id="platform-showcase" class="heading-element">🧰 Platform Engineering Showcase</h2><a id="-platform-engineering-showcase" class="anchor" aria-label="Permalink: 🧰 Platform Engineering Showcase" href="#-platform-engineering-showcase"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>Production-style reference code in <a href="https://github.com/hesbon-osoro/hesbon-osoro/tree/main/showcase"><code>showcase/</code></a>, linted, tested, and validated on every push by <a href="https://github.com/hesbon-osoro/hesbon-osoro/actions/workflows/ci.yml">CI</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>What it demonstrates</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>☸️ <strong>Kubernetes</strong>
+</td>
+<td>Kustomize base + staging/production overlays, zero-downtime rollouts, HPA, PDB, NetworkPolicy, restricted Pod Security, IRSA</td>
+<td><a href="https://github.com/hesbon-osoro/hesbon-osoro/tree/main/showcase/deploy/k8s">deploy/k8s</a></td>
+</tr>
+<tr>
+<td>🐳 <strong>Docker</strong>
+</td>
+<td>Multi-arch, cache-mounted build producing an ~8 MB distroless, non-root image with a built-in healthcheck</td>
+<td><a href="https://github.com/hesbon-osoro/hesbon-osoro/blob/main/showcase/services/orders-api/Dockerfile">Dockerfile</a></td>
+</tr>
+<tr>
+<td>🏗️ <strong>Terraform</strong>
+</td>
+<td>AWS VPC + EKS (KMS-encrypted secrets, IMDSv2, access entries), ECR lifecycle rules, keyless GitHub OIDC deploy role</td>
+<td><a href="https://github.com/hesbon-osoro/hesbon-osoro/tree/main/showcase/infra/terraform">infra/terraform</a></td>
+</tr>
+<tr>
+<td>🐹 <strong>Go</strong>
+</td>
+<td>Orders API with graceful drain for K8s, idempotency keys, Prometheus RED metrics, structured logs, race-tested</td>
+<td><a href="https://github.com/hesbon-osoro/hesbon-osoro/tree/main/showcase/services/orders-api">orders-api</a></td>
+</tr>
+<tr>
+<td>🦀 <strong>Rust</strong>
+</td>
+<td>Thread-safe keyed token-bucket rate limiter with a deterministic test clock, clippy-pedantic clean</td>
+<td><a href="https://github.com/hesbon-osoro/hesbon-osoro/tree/main/showcase/services/edge-ratelimit">edge-ratelimit</a></td>
+</tr>
+<tr>
+<td>🟦 <strong>TypeScript</strong>
+</td>
+<td>Retry with full-jitter exponential backoff, abort support, and a half-open circuit breaker</td>
+<td><a href="https://github.com/hesbon-osoro/hesbon-osoro/tree/main/showcase/services/resilience-ts">resilience-ts</a></td>
+</tr>
+<tr>
+<td>📈 <strong>SRE</strong>
+</td>
+<td>Multi-window burn-rate SLO alerts and a Python error-budget release gate</td>
+<td>
+<a href="https://github.com/hesbon-osoro/hesbon-osoro/tree/main/showcase/deploy/observability">observability</a> · <a href="https://github.com/hesbon-osoro/hesbon-osoro/blob/main/showcase/ops/slo_budget.py">slo_budget.py</a>
+</td>
+</tr>
+<tr>
+<td>🚀 <strong>CI/CD</strong>
+</td>
+<td>GitHub Actions: gofmt/vet/race, clippy, tsc, kubeconform, terraform validate, shellcheck, buildx</td>
+<td><a href="https://github.com/hesbon-osoro/hesbon-osoro/blob/main/.github/workflows/ci.yml">ci.yml</a></td>
+</tr>
+<tr>
+<td>🐚 <strong>Bash</strong>
+</td>
+<td>Digest-pinned deploy with server-side dry run, smoke test and automatic rollback</td>
+<td><a href="https://github.com/hesbon-osoro/hesbon-osoro/blob/main/showcase/ops/deploy.sh">deploy.sh</a></td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary><b>Peek at the code</b></summary>
+<p><strong>Kubernetes: never drop capacity during a rollout, and run locked down</strong></p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">strategy</span>:
+  <span class="pl-ent">rollingUpdate</span>:
+    <span class="pl-ent">maxSurge</span>: <span class="pl-c1">25%</span>
+    <span class="pl-ent">maxUnavailable</span>: <span class="pl-c1">0</span>
+<span class="pl-ent">template</span>:
+  <span class="pl-ent">spec</span>:
+    <span class="pl-ent">securityContext</span>:
+      <span class="pl-ent">runAsNonRoot</span>: <span class="pl-c1">true</span>
+      <span class="pl-ent">seccompProfile</span>: <span class="pl-s">{ type: RuntimeDefault }</span>
+    <span class="pl-ent">containers</span>:
+      - <span class="pl-ent">name</span>: <span class="pl-s">orders-api</span>
+        <span class="pl-ent">readinessProbe</span>: <span class="pl-s">{ httpGet: { path: /readyz, port: http } }</span>
+        <span class="pl-ent">securityContext</span>:
+          <span class="pl-ent">allowPrivilegeEscalation</span>: <span class="pl-c1">false</span>
+          <span class="pl-ent">readOnlyRootFilesystem</span>: <span class="pl-c1">true</span>
+          <span class="pl-ent">capabilities</span>: <span class="pl-s">{ drop: ['ALL'] }</span></pre></div>
+<p><strong>Go: drain before shutdown so Kubernetes stops routing traffic first</strong></p>
+<div class="highlight highlight-source-go"><pre><span class="pl-c1">&lt;-</span><span class="pl-s1">ctx</span>.<span class="pl-c1">Done</span>()                  <span class="pl-c">// SIGTERM from the kubelet</span>
+<span class="pl-s1">app</span>.<span class="pl-c1">ready</span>.<span class="pl-c1">Store</span>(<span class="pl-c1">false</span>)        <span class="pl-c">// /readyz -&gt; 503, pod leaves Service endpoints</span>
+<span class="pl-s1">time</span>.<span class="pl-c1">Sleep</span>(<span class="pl-s1">cfg</span>.<span class="pl-c1">DrainDelay</span>)    <span class="pl-c">// let kube-proxy / ingress catch up</span>
+<span class="pl-k">return</span> <span class="pl-s1">srv</span>.<span class="pl-c1">Shutdown</span>(<span class="pl-s1">shutdownCtx</span>) <span class="pl-c">// finish in-flight requests</span></pre></div>
+<p><strong>Terraform: CI deploys to AWS with short-lived OIDC tokens, no stored keys</strong></p>
+<div class="highlight highlight-source-hcl"><pre><span class="pl-en">condition</span> {
+  <span class="pl-v"><span class="pl-smi">test</span>     <span class="pl-k">=</span> </span><span class="pl-s"><span class="pl-pds">"</span>StringLike<span class="pl-pds">"</span></span>
+  <span class="pl-v"><span class="pl-smi">variable</span> <span class="pl-k">=</span> </span><span class="pl-s"><span class="pl-pds">"</span>token.actions.githubusercontent.com:sub<span class="pl-pds">"</span></span>
+  <span class="pl-v"><span class="pl-smi">values</span> <span class="pl-k">=</span> </span>[
+    <span class="pl-s"><span class="pl-pds">"</span>repo:<span class="pl-k">${</span><span class="pl-smi">var</span><span class="pl-k">.</span><span class="pl-smi">github_repository</span><span class="pl-k">}</span>:ref:refs/heads/main<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>repo:<span class="pl-k">${</span><span class="pl-smi">var</span><span class="pl-k">.</span><span class="pl-smi">github_repository</span><span class="pl-k">}</span>:ref:refs/tags/v*<span class="pl-pds">"</span></span>,
+  ]
+}</pre></div>
+<p><strong>Docker: distroless, non-root, self-checking</strong></p>
+<div class="highlight highlight-source-dockerfile"><pre><span class="pl-k">FROM</span> gcr.io/distroless/static-debian12:nonroot
+<span class="pl-k">COPY</span> --from=build /out/orders-api /orders-api
+<span class="pl-k">USER</span> nonroot:nonroot
+<span class="pl-k">HEALTHCHECK</span> CMD [<span class="pl-s">"/orders-api"</span>, <span class="pl-s">"healthcheck"</span>]
+<span class="pl-k">ENTRYPOINT</span> [<span class="pl-s">"/orders-api"</span>]</pre></div>
+</details>
+<div class="markdown-heading"><h3 id="monthly-development-breakdown" class="heading-element">📊 Monthly development breakdown</h3><a id="-monthly-development-breakdown" class="anchor" aria-label="Permalink: 📊 Monthly development breakdown" href="#-monthly-development-breakdown"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+<div class="highlight highlight-text-adblock"><pre>From: 09 September 2026 - To: 09 October 2026
+
+Python       18 hrs 3 mins         █████████░░░░░░░░░░░░░░░░   35.52 %
+Markdown     17 hrs 38 mins        ████████▓░░░░░░░░░░░░░░░░   34.69 %
+TypeScript   5 hrs 31 mins         ██▓░░░░░░░░░░░░░░░░░░░░░░   10.86 %
+HTML         3 hrs 2 mins          █▓░░░░░░░░░░░░░░░░░░░░░░░   06.00 %
+Other        2 hrs 25 mins         █▒░░░░░░░░░░░░░░░░░░░░░░░   04.77 %</pre></div>
+
+<div class="markdown-heading"><h2 id="sample-projects" class="heading-element">📂 Featured Projects</h2><a id="-featured-projects" class="anchor" aria-label="Permalink: 📂 Featured Projects" href="#-featured-projects"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary><b>Show 27 live projects</b>: click a screenshot to open the app, or the GitHub icon for its source</summary>
+
+<table>
+  <tbody>
+    <tr>
+      <td width="50%">
+        <a href="https://restaurant-ecommerce.netlify.app/" rel="nofollow">
+          <img loading="lazy" width="100%" src="assets/projects/restaurant.png" alt="Restaurant E-commerce" style="aspect-ratio: 1908 / 948; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://restaurant-ecommerce.netlify.app/" rel="nofollow">Restaurant E-commerce site</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/restaurant">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%">
+        <a href="https://hampi-tourism-site-hb.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Tourism Hampi screenshot" width="100%" src="assets/projects/hampi.png" style="aspect-ratio: 1920 / 1054; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://hampi-tourism-site-hb.netlify.app/" rel="nofollow">Tourism Hampi</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/tourism-hampi">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://video-app-hb.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Video App screenshot" src="assets/projects/video-app.png" width="100%" style="aspect-ratio: 957 / 822; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://video-app-hb.netlify.app/" rel="nofollow">Video App</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/video-app">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%">
+        <a href="https://chat-app-merng.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Chat App screenshot" src="assets/projects/chatapp.png" width="100%" style="aspect-ratio: 742 / 486; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://chat-app-merng.netlify.app/" rel="nofollow">Chat App</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/chat-app-merng-client">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://dating-site-frontend.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Dating Site screenshot" width="100%" src="assets/projects/dating-app-frontend.png" style="aspect-ratio: 1920 / 947; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://dating-site-frontend.netlify.app/" rel="nofollow">Dating Site</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/dating-app-frontend">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%">
+        <a href="https://salad-hb.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Salad site screenshot" width="100%" src="assets/projects/salad.png" style="aspect-ratio: 1082 / 834; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://salad-hb.netlify.app/" rel="nofollow">Salad site</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/salad">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://agency-site-hb.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Agency Site screenshot" width="100%" src="assets/projects/agency-site.png" style="aspect-ratio: 1164 / 751; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://agency-site-hb.netlify.app/" rel="nofollow">Agency Site</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/agency-site">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%">
+        <a href="https://portfolio-hb.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Sample Portfolio screenshot" width="100%" src="assets/projects/portfolio-hb.png" style="aspect-ratio: 1896 / 944; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://portfolio-hb.netlify.app/" rel="nofollow">Sample Portfolio</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/portfolio-hb">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://recipes-homemade-hb.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Recipes Homemade screenshot" width="100%" src="assets/projects/recipes.png" style="aspect-ratio: 1225 / 913; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://recipes-homemade-hb.netlify.app/" rel="nofollow">Recipes Homemade</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/recipes-homemade">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%">
+        <a href="https://messaging-app-frontend.web.app/" rel="nofollow">
+          <img loading="lazy" alt="Messaging App screenshot" src="assets/projects/messaging2.png" width="100%" style="aspect-ratio: 1914 / 946; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://messaging-app-frontend.web.app/" rel="nofollow">Messaging App</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/messaging-app-frontend">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://reactjs-shoppy-admin-dashboard.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Shoppy Dashboard screenshot" width="100%" src="assets/projects/shoppy-dashboard.png" style="aspect-ratio: 1920 / 1080; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://reactjs-shoppy-admin-dashboard.netlify.app/" rel="nofollow">Shoppy Dashboard</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/shoppy-admin-dashboard">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%">
+        <a href="https://simple-multistep-form.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Simple Multi-step form screenshot" src="assets/projects/simple-multistep.png" width="100%" style="aspect-ratio: 942 / 390; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://simple-multistep-form.netlify.app/" rel="nofollow">Simple Multi-step form</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/simple-multistep-form">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://react-alarm-clock.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Alarm Clock screenshot" width="100%" src="assets/projects/alarm-clock.png" style="aspect-ratio: 1205 / 1095; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://react-alarm-clock.netlify.app/" rel="nofollow">Alarm Clock</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/alarm-clock">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%">
+        <a href="https://snake-game-ts.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Snake Game screenshot" src="assets/projects/snake-game.png" width="100%" style="aspect-ratio: 1920 / 1053; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://snake-game-ts.netlify.app/" rel="nofollow">Snake Game</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/snake-game">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://reactjs-chess.vercel.app/" rel="nofollow">
+          <img loading="lazy" alt="React Chess screenshot" width="100%" src="assets/projects/react-chess.png" style="aspect-ratio: 1548 / 1016; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://reactjs-chess.vercel.app/" rel="nofollow">React Chess</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/react-chess">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%">
+        <a href="https://reactjs-sort-visualizer.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Sort Visualizer screenshot" src="assets/projects/sort-visualizer.png" width="100%" style="aspect-ratio: 1177 / 1095; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://reactjs-sort-visualizer.netlify.app/" rel="nofollow">Sort Visualizer</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/sort-visualizer">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://reactts-shopping-cart.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Shopping Cart screenshot" width="100%" src="assets/projects/shopping-cart.png" style="aspect-ratio: 1174 / 1095; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://reactts-shopping-cart.netlify.app/" rel="nofollow">Shopping Cart</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/shopping-cart">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%">
+        <a href="https://custom-pagination-react.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Custom Pagination screenshot" src="assets/projects/custom%20pagination.png" width="100%" style="aspect-ratio: 1174 / 590; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://custom-pagination-react.netlify.app/" rel="nofollow">Custom Pagination</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/custom-pagination">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://react-custom-select.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Custom Select screenshot" width="100%" src="assets/projects/react-select.png" style="aspect-ratio: 1161 / 1095; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://react-custom-select.netlify.app/" rel="nofollow">Custom Select</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/react-select">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%">
+        <a href="https://reactjs-drag-and-drop.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Drag and Drop screenshot" src="assets/projects/drag%20and%20drop.png" width="100%" style="aspect-ratio: 966 / 468; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://reactjs-drag-and-drop.netlify.app/" rel="nofollow">Drag and Drop</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/drag-and-drop">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://ck-editor-react.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="CK 5 Editor screenshot" width="100%" src="assets/projects/ck-editor.png" style="aspect-ratio: 966 / 393; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://ck-editor-react.netlify.app/" rel="nofollow">CK 5 Editor</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/ck-editor-react">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%">
+        <a href="https://tic-tac-toe-ts-game.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Tic Tac Toe screenshot" src="assets/projects/tictactoe.png" width="100%" style="aspect-ratio: 1169 / 1003; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://tic-tac-toe-ts-game.netlify.app/" rel="nofollow">Tic Tac Toe</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/tic-tac-toe">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://face-auth.netlify.app/" rel="nofollow">
+          <img loading="lazy" alt="Face Auth screenshot" width="100%" src="assets/projects/face-auth1.png" style="aspect-ratio: 1920 / 1080; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://face-auth.netlify.app/" rel="nofollow">Face Auth</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/face-auth">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%">
+        <a href="https://dynamic-next-previous-buttons.vercel.app/" rel="nofollow">
+          <img loading="lazy" alt="Dynamic Next/Previous buttons screenshot" src="assets/projects/dynamic%20nextprev.png" width="100%" style="aspect-ratio: 1183 / 1095; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://dynamic-next-previous-buttons.vercel.app/" rel="nofollow">Dynamic Next/Previous buttons</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/dynamic-next-previous-buttons">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://nextjs-video-streaming.vercel.app/" rel="nofollow">
+          <img loading="lazy" alt="Video Stream screenshot" width="100%" src="assets/projects/video-stream2.png" style="aspect-ratio: 1236 / 968; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://nextjs-video-streaming.vercel.app/" rel="nofollow">Video Stream</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/nextjs-video-streaming">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%">
+        <a href="https://hesbon-osoro.github.io/MindTap/" rel="nofollow">
+          <img loading="lazy" alt="Cengage | MindTap (69 projects) screenshot" width="100%" src="assets/projects/cengage-mindtap.png" style="aspect-ratio: 247 / 318; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://hesbon-osoro.github.io/MindTap/" rel="nofollow">Cengage | MindTap (69 projects)</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/MindTap">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://follow-for-follow-back.vercel.app/" rel="nofollow">
+          <img loading="lazy" alt="Follow For Follow Back screenshot" width="100%" src="assets/projects/follow-for-follow-back-hesbon.png" style="aspect-ratio: 1167 / 971; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://follow-for-follow-back.vercel.app/" rel="nofollow">Follow For Follow Back</a>
+        <br>
+        <a href="https://github.com/hesbon-osoro/follow-for-follow-back">
+          <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;">
+        </a>
+      </td>
+      <td width="50%"></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        CLICK ON THE <img loading="lazy" src="assets/icons/github.png" width="30px" height="30px" alt="GitHub repository" style="aspect-ratio: 418 / 418; height: auto; max-width: 100%; height: auto; max-height: 30px;"> ICON TO VIEW THE PROJECT'S REPOSITORY
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        CLICK ON THE PROJECT IMAGE OR THE <a href="#">BLUE LINK</a> TO VISIT THE HOSTED PROJECT
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</details>
+<div class="markdown-heading"><h2 id="certifications" class="heading-element">🎓 Certifications</h2><a id="-certifications" class="anchor" aria-label="Permalink: 🎓 Certifications" href="#-certifications"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<details>
+<summary><b>Show 13 certifications</b>, each with a verification link</summary>
+
+<table>
+  <tbody>
+    <tr>
+      <td width="50%">
+        <a href="https://www.hackerrank.com/certificates/229ef084f60a" rel="nofollow">
+          <img loading="lazy" alt="hackerrank js basic certificate" width="100%" src="assets/certificates/hackerrank%20js%20basic.png" style="aspect-ratio: 844 / 694; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://www.hackerrank.com/certificates/229ef084f60a" rel="nofollow">Verify</a>
+      </td>
+      <td width="50%">
+        <a href="https://www.hackerrank.com/certificates/12d1fbc424ce" rel="nofollow">
+          <img loading="lazy" alt="Hackerrankproblemsolving certificate" src="assets/certificates/Hackerrankproblemsolving.png" width="100%" style="aspect-ratio: 850 / 642; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://www.hackerrank.com/certificates/12d1fbc424ce" rel="nofollow">Verify</a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://www.codechef.com/certificates/verify" rel="nofollow">
+          <img loading="lazy" alt="snackdown2021 certificate" width="100%" src="assets/certificates/snackdown2021.png" style="aspect-ratio: 1125 / 795; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://www.codechef.com/certificates/verify" rel="nofollow">Verify</a>
+        <p><b>Certificate ID:</b> 94a6f28</p>
+        <p><b>Username:</b> wazimu</p>
+      </td>
+      <td width="50%">
+        <a href="https://hb-wazimu.netlify.app/#certification" rel="nofollow">
+          <img loading="lazy" alt="googlekickstart certificate" src="assets/certificates/googlekickstart.png" width="100%" style="aspect-ratio: 1157 / 677; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://hb-wazimu.netlify.app/#certification" rel="nofollow">Verify</a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://www.freecodecamp.org/certification/wazimu/front-end-development-libraries" rel="nofollow">
+          <img loading="lazy" alt="freeCodeCamp frontend dev libs certificate" width="100%" src="assets/certificates/freeCodeCamp%20frontend%20dev%20libs.png" style="aspect-ratio: 763 / 894; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://www.freecodecamp.org/certification/wazimu/front-end-development-libraries" rel="nofollow">Verify</a>
+      </td>
+      <td width="50%">
+        <a href="https://www.freecodecamp.org/certification/wazimu/javascript-algorithms-and-data-structures" rel="nofollow">
+          <img loading="lazy" alt="freeCodeCamp JADS certification certificate" src="assets/certificates/freeCodeCamp%20JADS%20certification.png" width="100%" style="aspect-ratio: 970 / 931; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://www.freecodecamp.org/certification/wazimu/javascript-algorithms-and-data-structures" rel="nofollow">Verify</a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://www.freecodecamp.org/certification/wazimu/responsive-web-design" rel="nofollow">
+          <img loading="lazy" alt="freeCodeCamp RWD certification certificate" width="100%" src="assets/certificates/freeCodeCamp%20RWD%20certification.png" style="aspect-ratio: 960 / 994; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://www.freecodecamp.org/certification/wazimu/responsive-web-design" rel="nofollow">Verify</a>
+      </td>
+      <td width="50%">
+        <a href="https://hb-wazimu.netlify.app/#certification" rel="nofollow">
+          <img loading="lazy" alt="devfest2021 certificate" src="assets/certificates/devfest2021.png" width="100%" style="aspect-ratio: 1125 / 794; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://hb-wazimu.netlify.app/#certification" rel="nofollow">Verify</a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://hb-wazimu.netlify.app/#certification" rel="nofollow">
+          <img loading="lazy" alt="googleanalytics certificate" width="100%" src="assets/certificates/googleanalytics.png" style="aspect-ratio: 358 / 412; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://hb-wazimu.netlify.app/#certification" rel="nofollow">Verify</a>
+      </td>
+      <td width="50%">
+        <a href="https://hb-wazimu.netlify.app/#certification" rel="nofollow">
+          <img loading="lazy" alt="AWS practitioner certificate" width="100%" src="assets/certificates/AWS%20practitioner.png" style="aspect-ratio: 1060 / 819; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://hb-wazimu.netlify.app/#certification" rel="nofollow">Verify</a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://hb-wazimu.netlify.app/#certification" rel="nofollow">
+          <img loading="lazy" alt="hesbon-twd certificate" src="assets/certificates/hesbon-twd.png" width="100%" style="aspect-ratio: 1153 / 813; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://hb-wazimu.netlify.app/#certification" rel="nofollow">Verify</a>
+      </td>
+      <td width="50%">
+        <a href="https://hb-wazimu.netlify.app/#certification" rel="nofollow">
+          <img loading="lazy" alt="AWS Elastic Beanstalk(intro) certificate" src="assets/certificates/AWS%20Elastic%20Beanstalk(intro).png" width="100%" style="aspect-ratio: 1408 / 1003; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://hb-wazimu.netlify.app/#certification" rel="nofollow">Verify</a>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <a href="https://hb-wazimu.netlify.app/#certification" rel="nofollow">
+          <img loading="lazy" alt="hourofcode certificate" src="assets/certificates/hourofcode.jpg" width="100%" style="aspect-ratio: 1754 / 1235; height: auto; max-width: 100%;">
+        </a>
+        <br>
+        <a href="https://code.org/congrats?i=_1_18e783d40c7c6f10271c6612c21a4c65" rel="nofollow">Verify</a>
+      </td>
+      <td width="50%"></td>
+    </tr>
+  </tbody>
+</table>
+
+</details>
+<div class="markdown-heading"><h2 id="github-activity" class="heading-element">📈 GitHub Activity</h2><a id="-github-activity" class="anchor" aria-label="Permalink: 📈 GitHub Activity" href="#-github-activity"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+
+<p align="center">
+  <a href="https://github.com/hesbon-osoro?tab=overview">
+    <img loading="lazy" src="assets/cards/activity-graph.svg" width="100%" alt="Hesbon Osoro's contribution graph for the last 31 days" style="max-width: 100%;">
+  </a>
+</p>
+<div class="markdown-heading"><h3 id="trophies" class="heading-element">🏆 Trophies</h3><a id="-trophies" class="anchor" aria-label="Permalink: 🏆 Trophies" href="#-trophies"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p align="center">
+  <a href="https://github.com/hesbon-osoro">
+    <img loading="lazy" src="assets/cards/trophies.svg" width="100%" alt="GitHub profile trophies" style="max-width: 100%;">
+  </a>
+</p>
+<p align="center">
+  <a href="https://github.com/hesbon-osoro">
+    <img loading="lazy" src="assets/cards/stats.svg" width="49%" alt="Hesbon Osoro's GitHub stats" style="max-width: 100%;">
+  </a>
+  <a href="https://github.com/hesbon-osoro">
+    <img loading="lazy" src="assets/cards/streak.svg" width="49%" alt="GitHub contribution streak" style="max-width: 100%;">
+  </a>
+</p>
+<p align="center">
+  <a href="https://github.com/hesbon-osoro/hesbon-osoro">
+    <img loading="lazy" src="assets/cards/pin.svg" width="49%" alt="hesbon-osoro/hesbon-osoro repository card" style="max-width: 100%;">
+  </a>
+  <a href="https://github.com/hesbon-osoro?tab=repositories">
+    <img loading="lazy" src="assets/cards/top-langs.svg" width="49%" alt="Most used languages across repositories" style="max-width: 100%;">
+  </a>
+</p>
+<div class="markdown-heading"><h3 id="leetcode" class="heading-element">🧩 LeetCode</h3><a id="-leetcode" class="anchor" aria-label="Permalink: 🧩 LeetCode" href="#-leetcode"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p align="center">
+  <a href="https://leetcode.com/hesbon-osoro/" rel="nofollow">
+    <img loading="lazy" src="assets/cards/leetcode-card.svg" width="49%" alt="LeetCode card with solved problems and yearly heatmap" style="max-width: 100%;">
+  </a>
+  <a href="https://leetcode.com/hesbon-osoro/" rel="nofollow">
+    <img loading="lazy" src="assets/cards/leetcode-stats.svg" width="49%" alt="LeetCode solved problems by difficulty" style="max-width: 100%;">
+  </a>
+</p>
+<div class="markdown-heading"><h3 id="wakatime" class="heading-element">⏱️ WakaTime</h3><a id="️-wakatime" class="anchor" aria-label="Permalink: ⏱️ WakaTime" href="#️-wakatime"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p align="center">
+  <a href="https://wakatime.com/@wazimu" rel="nofollow">
+    <img loading="lazy" src="assets/cards/wakatime.svg" width="495" alt="All-time WakaTime coding stats by language" style="max-width: 100%;">
+  </a>
+</p>
+<p align="center">
+  <a href="https://wakatime.com/@26cc90f6-22da-4220-ac7d-f452b6324239" rel="nofollow">
+    <img loading="lazy" src="https://camo.githubusercontent.com/ed9776445517746849ab3e3d566c32a1ef54f9f63bb67192f65d09b23c1f9432/68747470733a2f2f77616b6174696d652e636f6d2f62616467652f757365722f32366363393066362d323264612d343232302d616337642d6634353262363332343233392e737667" alt="Total time coded, tracked by WakaTime" data-canonical-src="https://wakatime.com/badge/user/26cc90f6-22da-4220-ac7d-f452b6324239.svg" style="max-width: 100%;">
+  </a>
+</p>
+<div class="markdown-heading"><h3 id="unique-views" class="heading-element">👀 Unique Views</h3><a id="-unique-views" class="anchor" aria-label="Permalink: 👀 Unique Views" href="#-unique-views"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p>
+  <a href="https://github.com/hesbon-osoro/wazimu-views-counter">
+    <img loading="lazy" src="https://raw.githubusercontent.com/hesbon-osoro/wazimu-views-counter/master/svg/profile/badge.svg" alt="Unique profile views" style="max-width: 100%;">
+  </a>
+  <a href="https://github.com/hesbon-osoro?tab=followers">
+    <img loading="lazy" src="https://camo.githubusercontent.com/73ef841c84b36c96ba06d28bd8d6b459f17524e5ee743795f25895831848c45a/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f666f6c6c6f776572732f686573626f6e2d6f736f726f3f6c6162656c3d466f6c6c6f77657273266c6f676f3d476974487562267374796c653d666f722d7468652d6261646765" alt="GitHub followers" data-canonical-src="https://img.shields.io/github/followers/hesbon-osoro?label=Followers&amp;logo=GitHub&amp;style=for-the-badge" style="max-width: 100%;">
+  </a>
+</p>
+
+<div class="markdown-heading"><h3 id="here-is-a-random-joke-for-you-today" class="heading-element">😂 Here is a random joke for you today</h3><a id="-here-is-a-random-joke-for-you-today" class="anchor" aria-label="Permalink: 😂 Here is a random joke for you today" href="#-here-is-a-random-joke-for-you-today"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><img loading="lazy" src="assets/cards/joke.svg" alt="A random programming joke" style="max-width: 100%;"></p>
+<div class="markdown-heading"><h3 id="star-my-projects-here" class="heading-element">Star my projects <a href="https://github.com/hesbon-osoro?tab=repositories">here</a>
+</h3><a id="star-my-projects-here" class="anchor" aria-label="Permalink: Star my projects here" href="#star-my-projects-here"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<div class="markdown-heading"><h2 id="open-to" class="heading-element">💼 Open To</h2><a id="-open-to" class="anchor" aria-label="Permalink: 💼 Open To" href="#-open-to"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><strong>Roles · Offers · Opportunities · Projects</strong>: <a href="mailto:osoro@hesbon.dev?subject=Project%20inquiry">email me</a> and I usually reply within 24 hours.</p>
+<ul>
+<li>🌍 Work from home / Remote</li>
+<li>🧑‍💻 <em>Freelance</em>
+</li>
+<li>🔐 <em>CompTIA Ethical Hacking</em> · <em>HackTheBox</em> | <em>HTB</em>
+</li>
+<li>✍️ <em>Academic Writing</em>
+</li>
+<li>📚 <em>Cengage/MindTap</em> · <em>zyBooks</em>
+</li>
+<li>📊 <em>Math, statistics &amp; data analysis</em>: MATLAB, R, Tableau, Excel, Python</li>
+<li>🧮 <em>Technical help</em>: debugging, code reviews, modelling and reports</li>
+<li>📬 Mail me your coding assignment: <a href="mailto:osoro@hesbon.dev">osoro@hesbon.dev</a>
+</li>
+</ul>
+<div class="markdown-heading"><h2 id="lets-connect" class="heading-element">🤝 Let’s Connect</h2><a id="-lets-connect" class="anchor" aria-label="Permalink: 🤝 Let’s Connect" href="#-lets-connect"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<ul>
+<li>📧 Email: <a href="mailto:osoro@hesbon.dev">osoro@hesbon.dev</a> | <a href="mailto:hesbonosoro1@gmail.com">hesbonosoro1@gmail.com</a>
+</li>
+<li>💼 LinkedIn: <a href="https://www.linkedin.com/in/hesbon-osoro/" rel="nofollow">linkedin.com/in/hesbon-osoro</a>
+</li>
+<li>🌍 Portfolio: <a href="https://hesbon.dev/" rel="nofollow">hesbon.dev</a>
+</li>
+<li>🐦 Twitter: <a href="https://twitter.com/wazimu_hb" rel="nofollow">@wazimu_hb</a>
+</li>
+<li>💻 GitHub: <a href="https://github.com/hesbon-osoro">github.com/hesbon-osoro</a>
+</li>
+</ul>
+<p><a href="https://www.gofundme.com/u/hesbon-osoro" rel="nofollow">GoFundMe</a></p>
+<p><a href="https://www.buymeacoffee.com/wazimu" rel="nofollow"><img loading="lazy" src="https://camo.githubusercontent.com/9f44ce2dc3b3eecdd02598900866ffc518801df1932849703dae1e5ce5031070/68747470733a2f2f7777772e6275796d6561636f666665652e636f6d2f6173736574732f696d672f637573746f6d5f696d616765732f6f72616e67655f696d672e706e67" alt="&quot;Buy Me A Coffee&quot;" data-canonical-src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" style="max-width: 100%;"></a></p>
+<p>⭐️ <em>Feel free to explore, fork, and collaborate on my projects. Open to freelance, remote roles, and research opportunities.</em></p>
+
+<div class="markdown-heading"><h3 id="thank-you" align="center" class="heading-element">Thank <img loading="lazy" src="./assets/icons/handshake.gif" height="32px" alt="handshake" style="aspect-ratio: 332 / 154; height: auto; max-width: 100%; height: auto; max-height: 32px;"> you</h3><a id="thank--you" class="anchor" aria-label="Permalink: Thank  you" href="#thank--you"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+
+  </main>
+  <footer>
+    This page is generated from the
+    <a href="https://github.com/hesbon-osoro/hesbon-osoro">hesbon-osoro profile README</a>
+    and republished automatically whenever it changes.
+  </footer>
+  <a class="hire" href="mailto:osoro@hesbon.dev?subject=Project%20inquiry">✉️ Hire me</a>
+  <script>
+  (function () {
+    var root = document.documentElement;
+    var light = document.getElementById('md-light');
+    var dark = document.getElementById('md-dark');
+    var toggle = document.querySelector('.theme-toggle');
+
+    function apply(theme) {
+      root.dataset.theme = theme;
+      light.media = theme === 'light' ? 'all' : 'not all';
+      dark.media = theme === 'dark' ? 'all' : 'not all';
+      toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+      toggle.setAttribute('aria-label', 'Switch to ' + (theme === 'dark' ? 'light' : 'dark') + ' theme');
+    }
+    apply(root.dataset.theme);
+    toggle.addEventListener('click', function () {
+      var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      apply(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+
+    // Smooth expand/collapse for <details>. Without JavaScript, or with
+    // reduced motion, the native instant toggle still works.
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    document.querySelectorAll('.markdown-body details').forEach(function (details) {
+      var summary = details.querySelector(':scope > summary');
+      if (!summary) return;
+      var animation = null;
+
+      summary.addEventListener('click', function (event) {
+        if (reduce.matches || !details.animate) return;
+        event.preventDefault();
+        if (animation) return;
+
+        var closing = details.open;
+        var start = details.offsetHeight;
+        if (!closing) details.open = true;
+        var end = closing ? summary.offsetHeight + 2 : details.offsetHeight;
+        var distance = Math.abs(end - start);
+
+        animation = details.animate(
+          { height: [start + 'px', end + 'px'] },
+          { duration: Math.min(700, 250 + distance / 6), easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)' }
+        );
+        animation.onfinish = animation.oncancel = function () {
+          if (closing) details.open = false;
+          animation = null;
+        };
+      });
+    });
+  })();
+</script>
+</body>
 </html>
