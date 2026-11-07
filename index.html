@@ -158,57 +158,52 @@
 <details>
 <summary><b>Peek at the code</b></summary>
 <p><strong>Kubernetes: never drop capacity during a rollout, and run locked down</strong></p>
-<pre lang="yaml"><code>strategy:
-  rollingUpdate:
-    maxSurge: 25%
-    maxUnavailable: 0
-template:
-  spec:
-    securityContext:
-      runAsNonRoot: true
-      seccompProfile: { type: RuntimeDefault }
-    containers:
-      - name: orders-api
-        readinessProbe: { httpGet: { path: /readyz, port: http } }
-        securityContext:
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
-          capabilities: { drop: ['ALL'] }
-</code></pre>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">strategy</span>:
+  <span class="pl-ent">rollingUpdate</span>:
+    <span class="pl-ent">maxSurge</span>: <span class="pl-c1">25%</span>
+    <span class="pl-ent">maxUnavailable</span>: <span class="pl-c1">0</span>
+<span class="pl-ent">template</span>:
+  <span class="pl-ent">spec</span>:
+    <span class="pl-ent">securityContext</span>:
+      <span class="pl-ent">runAsNonRoot</span>: <span class="pl-c1">true</span>
+      <span class="pl-ent">seccompProfile</span>: <span class="pl-s">{ type: RuntimeDefault }</span>
+    <span class="pl-ent">containers</span>:
+      - <span class="pl-ent">name</span>: <span class="pl-s">orders-api</span>
+        <span class="pl-ent">readinessProbe</span>: <span class="pl-s">{ httpGet: { path: /readyz, port: http } }</span>
+        <span class="pl-ent">securityContext</span>:
+          <span class="pl-ent">allowPrivilegeEscalation</span>: <span class="pl-c1">false</span>
+          <span class="pl-ent">readOnlyRootFilesystem</span>: <span class="pl-c1">true</span>
+          <span class="pl-ent">capabilities</span>: <span class="pl-s">{ drop: ['ALL'] }</span></pre></div>
 <p><strong>Go: drain before shutdown so Kubernetes stops routing traffic first</strong></p>
-<pre lang="go"><code>&lt;-ctx.Done()                  // SIGTERM from the kubelet
-app.ready.Store(false)        // /readyz -&gt; 503, pod leaves Service endpoints
-time.Sleep(cfg.DrainDelay)    // let kube-proxy / ingress catch up
-return srv.Shutdown(shutdownCtx) // finish in-flight requests
-</code></pre>
+<div class="highlight highlight-source-go"><pre><span class="pl-c1">&lt;-</span><span class="pl-s1">ctx</span>.<span class="pl-c1">Done</span>()                  <span class="pl-c">// SIGTERM from the kubelet</span>
+<span class="pl-s1">app</span>.<span class="pl-c1">ready</span>.<span class="pl-c1">Store</span>(<span class="pl-c1">false</span>)        <span class="pl-c">// /readyz -&gt; 503, pod leaves Service endpoints</span>
+<span class="pl-s1">time</span>.<span class="pl-c1">Sleep</span>(<span class="pl-s1">cfg</span>.<span class="pl-c1">DrainDelay</span>)    <span class="pl-c">// let kube-proxy / ingress catch up</span>
+<span class="pl-k">return</span> <span class="pl-s1">srv</span>.<span class="pl-c1">Shutdown</span>(<span class="pl-s1">shutdownCtx</span>) <span class="pl-c">// finish in-flight requests</span></pre></div>
 <p><strong>Terraform: CI deploys to AWS with short-lived OIDC tokens, no stored keys</strong></p>
-<pre lang="hcl"><code>condition {
-  test     = "StringLike"
-  variable = "token.actions.githubusercontent.com:sub"
-  values = [
-    "repo:${var.github_repository}:ref:refs/heads/main",
-    "repo:${var.github_repository}:ref:refs/tags/v*",
+<div class="highlight highlight-source-hcl"><pre><span class="pl-en">condition</span> {
+  <span class="pl-v"><span class="pl-smi">test</span>     <span class="pl-k">=</span> </span><span class="pl-s"><span class="pl-pds">"</span>StringLike<span class="pl-pds">"</span></span>
+  <span class="pl-v"><span class="pl-smi">variable</span> <span class="pl-k">=</span> </span><span class="pl-s"><span class="pl-pds">"</span>token.actions.githubusercontent.com:sub<span class="pl-pds">"</span></span>
+  <span class="pl-v"><span class="pl-smi">values</span> <span class="pl-k">=</span> </span>[
+    <span class="pl-s"><span class="pl-pds">"</span>repo:<span class="pl-k">${</span><span class="pl-smi">var</span><span class="pl-k">.</span><span class="pl-smi">github_repository</span><span class="pl-k">}</span>:ref:refs/heads/main<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>repo:<span class="pl-k">${</span><span class="pl-smi">var</span><span class="pl-k">.</span><span class="pl-smi">github_repository</span><span class="pl-k">}</span>:ref:refs/tags/v*<span class="pl-pds">"</span></span>,
   ]
-}
-</code></pre>
+}</pre></div>
 <p><strong>Docker: distroless, non-root, self-checking</strong></p>
-<pre lang="dockerfile"><code>FROM gcr.io/distroless/static-debian12:nonroot
-COPY --from=build /out/orders-api /orders-api
-USER nonroot:nonroot
-HEALTHCHECK CMD ["/orders-api", "healthcheck"]
-ENTRYPOINT ["/orders-api"]
-</code></pre>
+<div class="highlight highlight-source-dockerfile"><pre><span class="pl-k">FROM</span> gcr.io/distroless/static-debian12:nonroot
+<span class="pl-k">COPY</span> --from=build /out/orders-api /orders-api
+<span class="pl-k">USER</span> nonroot:nonroot
+<span class="pl-k">HEALTHCHECK</span> CMD [<span class="pl-s">"/orders-api"</span>, <span class="pl-s">"healthcheck"</span>]
+<span class="pl-k">ENTRYPOINT</span> [<span class="pl-s">"/orders-api"</span>]</pre></div>
 </details>
 <div class="markdown-heading"><h3 id="monthly-development-breakdown" class="heading-element">📊 Monthly development breakdown</h3><a id="-monthly-development-breakdown" class="anchor" aria-label="Permalink: 📊 Monthly development breakdown" href="#-monthly-development-breakdown"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 
-<pre lang="txt"><code>From: 06 October 2026 - To: 05 November 2026
+<div class="highlight highlight-text-adblock"><pre>From: 07 October 2026 - To: 06 November 2026
 
-Other         33 hrs 12 mins        ███████▒░░░░░░░░░░░░░░░░░   29.58 %
-Markdown      21 hrs 3 mins         ████▓░░░░░░░░░░░░░░░░░░░░   18.75 %
-TypeScript    19 hrs 42 mins        ████▒░░░░░░░░░░░░░░░░░░░░   17.55 %
-HTML          17 hrs 15 mins        ████░░░░░░░░░░░░░░░░░░░░░   15.38 %
-Bash          4 hrs 50 mins         █░░░░░░░░░░░░░░░░░░░░░░░░   04.31 %
-</code></pre>
+Other         33 hrs 34 mins        ███████▓░░░░░░░░░░░░░░░░░   30.11 %
+Markdown      21 hrs 23 mins        ████▓░░░░░░░░░░░░░░░░░░░░   19.18 %
+TypeScript    19 hrs                ████▒░░░░░░░░░░░░░░░░░░░░   17.04 %
+HTML          16 hrs 33 mins        ███▓░░░░░░░░░░░░░░░░░░░░░   14.85 %
+Bash          5 hrs 17 mins         █▒░░░░░░░░░░░░░░░░░░░░░░░   04.75 %</pre></div>
 
 <div class="markdown-heading"><h2 id="sample-projects" class="heading-element">📂 Featured Projects</h2><a id="-featured-projects" class="anchor" aria-label="Permalink: 📂 Featured Projects" href="#-featured-projects"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <details>
